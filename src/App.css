@@ -1,0 +1,65 @@
+/* ANIMATIONS */
+
+@keyframes upWelcome{
+  0%    {color: rgba(17, 17, 17, 0);}
+  25%    {color: rgba(17, 17, 17, 0.03);}
+  100%  {color: rgb(255, 255, 255);}
+}
+
+/* MAIN POPUP STYLE */
+
+html{
+  overflow: hidden;
+  height : 600px;
+  width : 800px;
+}
+
+body{
+  background-color: rgb(17, 17, 17);
+}
+
+.maintext{
+  font-family: 'Staatliches', sans-serif;
+  color: blanchedalmond;
+  text-align: center;
+  font-size: 35px;
+  letter-spacing:2px;
+}
+
+.welcomeText{
+  font-family: 'Kanit', sans-serif;
+  color: blanchedalmond;
+  text-align: center;
+  font-size: 15px;
+  letter-spacing:1px;
+  transform: translateY(-100%);
+  animation-name: upWelcome;
+  animation-duration: 2s;
+}
+
+.signin {
+  text-align: center;
+  transition: 0.8s;
+  margin-top: 20%;
+
+}  
+
+.signinbutton {
+  background-color: limegreen;
+  border-color: limegreen;
+  border-style: solid ;
+  border-radius: 40px;
+  width: 150px;
+  height: 50px;
+  color: blanchedalmond;
+  cursor: pointer;
+}
+
+.signin:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+
