@@ -1,22 +1,22 @@
+/*global chrome*/
 import React, { Component } from 'react';
 import './App.css';
+import Signedin from './Signedin'; 
+import Signedout from './Signedout'; 
 
 class App extends Component {
 
     constructor() { 
         super();
         this.state = {
-            userloggedin: false
+          userloggedin: false,
+          access_token: ''
         }
     } 
 
     render() { 
-      return (<div>
-        <h1 className="maintext">Your Spotify Statistics</h1>
-        <h2 className="welcomeText">WELCOME</h2>
-    
-        <div className="signin"><button class="signinbutton">SIGN IN</button></div>
-      </div>);
+      const {userloggedin} = this.state;
+      return userloggedin ? <Signedin /> : <Signedout />; 
     }
 } 
 
