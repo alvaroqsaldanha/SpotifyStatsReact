@@ -1,0 +1,32 @@
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 5px;
+} 
+
+.signoutbutton {
+    float: right;
+    margin-right: 5px;
+    width: 100px;
+    height: 35px;
+} 
+
+.dropdown {
+    float: left;
+    margin-left: 5px; 
+    text-align: center;
+    width: 100px;
+    height: 35px;
+} 
+
+.signoutbutton:hover {
+    transform: scale(1.05);
+} 
+
+option {
+    background-color: white;
+    color:black;
+}

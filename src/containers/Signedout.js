@@ -8,6 +8,7 @@ class Signedout extends Component {
         this.state = {
             apistate: ''
         }
+
     } 
 
     authorize = (temp_state) => {
@@ -49,17 +50,21 @@ class Signedout extends Component {
                         
                         let ACCESS_TOKEN = redirect_url.substring(redirect_url.indexOf('access_token=') + 13);
                         ACCESS_TOKEN = ACCESS_TOKEN.substring(0,ACCESS_TOKEN.indexOf('&'));
-                        console.log("access_token: ", ACCESS_TOKEN);
+                        console.log("access_token: ", ACCESS_TOKEN); 
+                        console.log(this.props);
+                        this.props.signinfunction(ACCESS_TOKEN);
                     }
                     else{
+                        //THROW ERROR!!!!!!
                     }  
                 } 
             }
-        });
+        }.bind(this));
         return true;
     }
 
     render() { 
+    this.signIn = this.signIn.bind(this);
       return (<div>
         <h1 className="maintext">Your Spotify Statistics</h1>
         <h2 className="welcomeText">WELCOME</h2>

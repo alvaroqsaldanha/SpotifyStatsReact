@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Staatliches&display=swap');
+
 /* ANIMATIONS */
 
 @keyframes upWelcome{
@@ -19,7 +22,7 @@ body{
 }
 
 .maintext{
-  font-family: 'Staatliches', sans-serif;
+  font-family: 'Staatliches', Arial, Helvetica, sans-serif;
   color: blanchedalmond;
   text-align: center;
   font-size: 35px;
@@ -27,7 +30,7 @@ body{
 }
 
 .welcomeText{
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   color: blanchedalmond;
   text-align: center;
   font-size: 15px;
@@ -39,12 +42,10 @@ body{
 
 .signin {
   text-align: center;
-  transition: 0.8s;
   margin-top: 20%;
-
 }  
 
-.signinbutton {
+button, select {
   background-color: limegreen;
   border-color: limegreen;
   border-style: solid ;
@@ -53,9 +54,10 @@ body{
   height: 50px;
   color: blanchedalmond;
   cursor: pointer;
+  transition: 0.8s;
 }
 
-.signin:hover {
+button:hover {
   transform: scale(1.1);
 }
 
