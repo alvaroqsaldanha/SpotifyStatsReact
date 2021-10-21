@@ -24,9 +24,9 @@ class App extends Component {
 
 
     render() { 
-      const {userloggedin} = this.state;
-      return userloggedin ? <Signedin signoutfunction={this.signOut} /> : <Signedout signinfunction={this.onSucessfullSignIn} />; 
+      const {userloggedin,access_token} = this.state;
+      return userloggedin ? <Signedin signoutfunction={this.signOut} token={access_token} /> : <Signedout signinfunction={this.onSucessfullSignIn} />; 
     }
-} 
+}  
 
 export default App;

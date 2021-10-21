@@ -66,7 +66,6 @@ class Signedout extends Component {
     render() { 
     this.signIn = this.signIn.bind(this);
       return (<div>
-        <h1 className="maintext">Your Spotify Statistics</h1>
         <h2 className="welcomeText">WELCOME</h2>
         <div className="signin"><button className="signinbutton" onClick={this.signIn}>SIGN IN</button></div>
       </div>);
