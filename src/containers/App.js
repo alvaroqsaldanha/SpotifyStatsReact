@@ -1,7 +1,7 @@
 /*global chrome*/
 import React, { Component } from 'react';
 import './App.css';
-import Signedin from './../components/Signedin'; 
+import Signedin from './Signedin'; 
 import Signedout from './Signedout'; 
 
 class App extends Component {

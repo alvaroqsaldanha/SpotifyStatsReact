@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; 
 import './Aotd.css';
-import { genres } from './genres';
+import { genres } from '../components/genres';
 
 class Aotd extends Component { 
 
