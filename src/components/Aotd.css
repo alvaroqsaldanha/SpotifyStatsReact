@@ -17,4 +17,17 @@
 
 .aotdcover:hover {
     transform: scale(1.05);
+} 
+
+.player {
+    width: 40%;
+    margin: 0 auto;
+    padding-top:2%;
+} 
+
+.player > button {
+    background-color: rgb(17, 17, 17);
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
 }

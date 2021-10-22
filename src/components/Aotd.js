@@ -1,5 +1,6 @@
 import React, { Component } from 'react'; 
 import './Aotd.css';
+import { genres } from './genres';
 
 class Aotd extends Component { 
 
@@ -9,20 +10,22 @@ class Aotd extends Component {
             albumcover: '',
             albumtitle: '',
             artist: '',
-            link: ''
+            link: '',
+            uri_album: '',
+            uri_song: '',
+            index: 0,
+            songs: {}
         }
-        this.getAlbum();
+        this.getSongs();
     } 
 
-    getAlbum = () => {
+    getSongs = () => {
         const {token} = this.props;
         const seedartists = encodeURIComponent('4NHQUGzhtTLFvgF5SZesLK');
-        const seedgenres = encodeURIComponent('classical,country');
+        const seedgenres = encodeURIComponent(genres[Math.floor(Math.random() * (genres.length - 0 + 1) + 0)] + "," + genres[Math.floor(Math.random() * (genres.length - 0 + 1) + 0)]);
         const seedtracks = encodeURIComponent('0c6xIDDpzE81m2q797ordA');
-        const limit = encodeURIComponent('1');
+        const limit = encodeURIComponent('50');
         const AOTD = `https://api.spotify.com/v1/recommendations?limit=${limit}&seed_artists=${seedartists}&seed_genres=${seedgenres}&seed_tracks=${seedtracks}`;
-        console.log(AOTD);
-        console.log(token);
         fetch(AOTD, {
             method: 'GET',
             headers: {
@@ -30,15 +33,61 @@ class Aotd extends Component {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             }
-        }).then( test => test.json()).then(test1 => { 
-            console.log(test1);
-            this.setState({
-                artist: test1.tracks[0].artists[0].name + " - " + test1.tracks[0].name,
-                albumcover: test1.tracks[0].album.images[1].url,
-                link: test1.tracks[0].external_urls.spotify
-            }); 
+        }).then( response => response.json()).then(responsejson => { 
+            console.log(responsejson); 
+            this.setState({songs: responsejson});
+            this.setSong();
         });
+    } 
+
+    play = () => {
+        const {token} = this.props;
+        const {uri_album} = this.state;
+        const PLAY = "https://api.spotify.com/v1/me/player/play"; 
+        var obj = new Object();
+        obj.context_uri = uri_album;
+        obj.position_ms  = 0;
+        fetch(PLAY, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(obj)
+        }).then( test => console.log(test)
+            //CHECK FOR ERROR!
+        );
+    } 
+
+    addToQueue = () => {
+        const {token} = this.props;
+        const {uri_song} = this.state;
+        const QUEUE = `https://api.spotify.com/v1/me/player/queue?uri=${encodeURIComponent(uri_song)}`;
+        fetch(QUEUE, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        }).then( response => console.log(response)
+            //CHECK FOR ERROR!
+        );
     }
+
+    setSong = () => {
+        const {index, songs} = this.state;
+        if (index > 49) this.setState({index:0});
+        this.setState({
+            artist: songs.tracks[index].artists[0].name + " - " + songs.tracks[index].name,
+            albumcover: songs.tracks[index].album.images[1].url,
+            link: songs.tracks[index].external_urls.spotify,
+            index: index + 1,
+            uri_album: songs.tracks[index].album.uri,
+            uri_song: songs.tracks[index].uri
+        }); 
+    } 
 
     render() {
         const {closefunction} = this.props; 
@@ -47,8 +96,12 @@ class Aotd extends Component {
                     <div className="container"> 
                         <h2 className="aotdartist"><a href={link} target="_blank">{artist}</a></h2>
                         <a href={link} target="_blank"><img className="aotdcover" src={albumcover} /></a>
+                        <div className="player">
+                            <button className="dropdown" onClick={() => this.play()}>Play</button>
+                            <button className="signoutbutton" onClick={() => this.addToQueue()}>Add to Queue</button> 
+                        </div>
                         <footer>
-                            <button className="dropdown"  onClick={() => this.getAlbum()}>Refresh</button>
+                            <button className="dropdown"  onClick={() => this.setSong()}>Refresh</button>
                             <button className="signoutbutton"  onClick={() => closefunction(false)}>Back</button>
                         </footer>
                     </div>

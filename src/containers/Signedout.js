@@ -15,7 +15,7 @@ class Signedout extends Component {
         const CLIENT_ID = 'ccd5e2b799eb4d0c9daf57324aa666ba';
         const RESPONSE_TYPE = encodeURIComponent('token');
         const REDIRECT_URI = encodeURIComponent('https://aonceapadahkknamgbchadpdedobgnfg.chromiumapp.org/');
-        const SCOPE = encodeURIComponent('user-read-email user-top-read');
+        const SCOPE = encodeURIComponent('user-read-email user-top-read streaming');
         const SHOW_DIALOG = encodeURIComponent('true');
         let ouathurl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=${RESPONSE_TYPE}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&state=${temp_state}&show_dialog=${SHOW_DIALOG}`;
         console.log(ouathurl);
