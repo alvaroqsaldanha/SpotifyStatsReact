@@ -16,14 +16,15 @@ class Aotd extends Component {
             index: 0,
             songs: {}
         }
+        console.log("ids: ",this.props.ids);
         this.getSongs();
     } 
 
     getSongs = () => {
         const {token} = this.props;
-        const seedartists = encodeURIComponent('4NHQUGzhtTLFvgF5SZesLK');
+        const seedartists = encodeURIComponent(this.props.ids.first + "," + this.props.ids.second);
         const seedgenres = encodeURIComponent(genres[Math.floor(Math.random() * (genres.length - 0 + 1) + 0)] + "," + genres[Math.floor(Math.random() * (genres.length - 0 + 1) + 0)]);
-        const seedtracks = encodeURIComponent('0c6xIDDpzE81m2q797ordA');
+        const seedtracks = encodeURIComponent("");
         const limit = encodeURIComponent('50');
         const AOTD = `https://api.spotify.com/v1/recommendations?limit=${limit}&seed_artists=${seedartists}&seed_genres=${seedgenres}&seed_tracks=${seedtracks}`;
         fetch(AOTD, {
@@ -34,7 +35,6 @@ class Aotd extends Component {
                 'Authorization': `Bearer ${token}`
             }
         }).then( response => response.json()).then(responsejson => { 
-            console.log(responsejson); 
             this.setState({songs: responsejson});
             this.setSong();
         });
@@ -55,7 +55,7 @@ class Aotd extends Component {
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(obj)
-        }).then( test => console.log(test)
+        }).then( test => console.log("")
             //CHECK FOR ERROR!
         );
     } 
@@ -71,7 +71,7 @@ class Aotd extends Component {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             }
-        }).then( response => console.log(response)
+        }).then( response => console.log("")
             //CHECK FOR ERROR!
         );
     }

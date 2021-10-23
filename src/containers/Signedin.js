@@ -11,8 +11,7 @@ class Signedin extends Component {
             timeframe: 'short_term',
             access_token: this.props.token,
             aotd: false,
-            topsongs: {},
-            topartists: {}
+            ids: {}
         } 
 
     } 
@@ -21,14 +20,17 @@ class Signedin extends Component {
         this.setState({timeframe: event.target.value});
     } 
 
-    changeAotd = (test) => {
-        this.setState({aotd: test});
+    changeAotd = (active) => {
+        this.setState({aotd: active});
     } 
 
+    changeIds = (current) => {
+        this.setState({ids: current});
+    }
+
     render() { 
-        console.log(this.state.timeframe);
-        return this.state.aotd ? <Aotd token={this.state.access_token} closefunction={this.changeAotd} /> : (<div>
-            <TopItems token={this.state.access_token} timeframe={this.state.timeframe}/>
+        return this.state.aotd ? <Aotd token={this.state.access_token} closefunction={this.changeAotd} ids={this.state.ids} /> : (<div>
+            <TopItems token={this.state.access_token} timeframe={this.state.timeframe} getIds={this.changeIds}/>
             <footer>
                 <select className="dropdown" name="timeframes" onChange={this.changeTimeframe}>
                     <option value="short_term">4 weeks</option>
