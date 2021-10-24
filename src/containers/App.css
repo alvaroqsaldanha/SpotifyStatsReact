@@ -45,7 +45,7 @@ body{
   margin-top: 20%;
 }  
 
-button, select {
+.button1, select {
   background-color: limegreen;
   border-color: limegreen;
   border-style: solid ;

@@ -97,12 +97,12 @@ class Aotd extends Component {
                         <h2 className="aotdartist"><a href={link} target="_blank">{artist}</a></h2>
                         <a href={link} target="_blank"><img className="aotdcover" src={albumcover} /></a>
                         <div className="player">
-                            <button className="dropdown" onClick={() => this.play()}>Play</button>
-                            <button className="signoutbutton" onClick={() => this.addToQueue()}>Add to Queue</button> 
+                            <button className="dropdown button1" onClick={() => this.play()}>Play</button>
+                            <button className="signoutbutton button1" onClick={() => this.addToQueue()}>Add to Queue</button> 
                         </div>
                         <footer>
-                            <button className="dropdown"  onClick={() => this.setSong()}>Refresh</button>
-                            <button className="signoutbutton"  onClick={() => closefunction(false)}>Back</button>
+                            <button className="dropdown dropdowntf button1"  onClick={() => this.setSong()}>Refresh</button>
+                            <button className="signoutbutton button1"  onClick={() => closefunction(false)}>Back</button>
                         </footer>
                     </div>
                 </div>); 
