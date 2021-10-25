@@ -1,8 +1,37 @@
-.itemcontainer {
+.gridcontainer {
     color:white;
+    margin: auto;
+    width: 90%;
+    height:50px;
+    position: relative;
+} 
+
+.gridcontainer > h1 {
+    width:10px;
+}
+
+.itemcontainer {
+    width:100%;
+    height:50px;
 }
 
 .itemcover {
-    width:30px;
+    width:50px;
     display: inline-block;
 }
+
+.name {
+    display: inline-block;
+    margin-bottom: 5%;
+} 
+
+.test {
+   position: absolute;
+   left:0;
+   bottom:0; 
+   margin-bottom: 0;
+   padding-bottom: 0;
+}
+
+
+

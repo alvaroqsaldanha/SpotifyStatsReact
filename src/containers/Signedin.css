@@ -48,7 +48,7 @@ header {
     grid-template-columns: auto 1fr 1fr auto;
 } 
 
-h3 {
+header > h2 {
     text-align: center;
 }
 
@@ -58,4 +58,21 @@ header > button {
     border: none;
     color:white;
     transition: 0.8s;
+} 
+
+.verticalline {
+    border-left: 1px solid white;
+    height: 66%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 23%;
 }
+
+.test1 {
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    width:50%;
+    padding-top: 50px;
+} 

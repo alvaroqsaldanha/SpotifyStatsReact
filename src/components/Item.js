@@ -1,12 +1,14 @@
 import React from 'react';
 import './Item.css' 
 
-const Item = ({name,artist,link}) => { 
+const Item = ({pos,name,artist,link}) => { 
     return (
         <div className="itemcontainer">
-            <img className="itemcover" src={link}></img>
-            <p>{name}</p>
-            <p>{artist}</p>
+            <div className="gridcontainer">
+                <img className="itemcover" src={link}></img>
+                <h1 className="test">{pos}</h1>
+                <p className="name">{name} <br/> {artist}</p>
+            </div>
         </div>
     );
 } 

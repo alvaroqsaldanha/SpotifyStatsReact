@@ -38,7 +38,7 @@ class TopItems extends Component {
 
     callApi = (type) => {
         const {token,timeframe} = this.props;
-        const TOP = `https://api.spotify.com/v1/me/top/${type}?time_range=${timeframe}&limit=50&offset=0`;
+        const TOP = `https://api.spotify.com/v1/me/top/${type}?time_range=${timeframe}&limit=49&offset=0`;
         return fetch(TOP, {
             method: 'GET',
             headers: {
@@ -54,9 +54,9 @@ class TopItems extends Component {
         var idx = parseInt(index);
         const n = (tracks.length > artists.length ? tracks.length : artists.length) - 1;
         if (dir > 0) 
-            idx = idx + 10 > n ? idx = 0 : idx += 10;
+            idx = idx + 7 > n ? idx = 0 : idx += 7;
         else
-            idx = idx - 10 < 0 ? idx = n - (n % 10) : idx -= 10;
+            idx = idx - 7 < 0 ? idx = n - (n % 7) : idx -= 7;
         this.setState({index:idx}); 
     }
 
@@ -72,13 +72,13 @@ class TopItems extends Component {
         return (<div className="topitemscontainer">
             <header>
                 <button onClick={() => this.changePage(0)}><img src={left}/></button>
-                <h3>Top Tracks</h3>  
-                <h3>Top Artists</h3> 
+                <h2>Top Tracks</h2>  
+                <h2>Top Artists</h2> 
                 <button onClick={() => this.changePage(1)}><img src={right}/></button>         
             </header> 
-             
+            <ItemList index={index} tracks={tracks} artists={artists}/> 
+            <div className="verticalline"></div>
         </div>);
-        //<ItemList index={index} tracks={tracks} artists={artists}/> 
     }
 } 
 
