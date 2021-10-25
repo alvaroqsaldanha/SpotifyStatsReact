@@ -73,6 +73,11 @@ header > button {
     display:grid;
     grid-template-columns: 1fr;
     grid-gap: 10px;
-    width:50%;
+    width:100%;
     padding-top: 50px;
 } 
+
+.listcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

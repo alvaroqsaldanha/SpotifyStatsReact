@@ -76,8 +76,11 @@ class TopItems extends Component {
                 <h2>Top Artists</h2> 
                 <button onClick={() => this.changePage(1)}><img src={right}/></button>         
             </header> 
-            <ItemList index={index} tracks={tracks} artists={artists}/> 
-            <div className="verticalline"></div>
+            <div className="listcontainer">
+                <ItemList index={index} tracks={tracks} artists={artists}/> 
+                <div className="verticalline"></div>
+                <ItemList index={index} tracks={tracks} artists={artists}/> 
+            </div>
         </div>);
     }
 } 
