@@ -10,6 +10,8 @@ class TopItems extends Component {
         this.state = {
             tracks: {},
             artists: {},
+            trackstoshow: {},
+            artiststoshow: {},
             index: "0",
             sent: 0
             
@@ -32,7 +34,7 @@ class TopItems extends Component {
         returnObj["tracks"] = responsejsontracks.items;
         returnObj["artists"] = responsejsonartists.items;
         returnObj["sent"] = 1;
-        returnObj["index"] = 0;
+        returnObj["index"] = 0; 
         this.setState(returnObj);
     } 
 
@@ -54,9 +56,9 @@ class TopItems extends Component {
         var idx = parseInt(index);
         const n = (tracks.length > artists.length ? tracks.length : artists.length) - 1;
         if (dir > 0) 
-            idx = idx + 7 > n ? idx = 0 : idx += 7;
+            idx = idx + 7 > n ? 0 : idx + 7;
         else
-            idx = idx - 7 < 0 ? idx = n - (n % 7) : idx -= 7;
+            idx = idx - 7 < 0 ? n - (n % 7) : idx -= 7;
         this.setState({index:idx}); 
     }
 
@@ -68,6 +70,7 @@ class TopItems extends Component {
 
     render() { 
         const {index,tracks,artists,sent} = this.state;
+        console.log(artists);
         if (sent === 0) return null;
         return (<div className="topitemscontainer">
             <header>
@@ -77,9 +80,9 @@ class TopItems extends Component {
                 <button onClick={() => this.changePage(1)}><img src={right}/></button>         
             </header> 
             <div className="listcontainer">
-                <ItemList index={index} tracks={tracks} artists={artists}/> 
+                <ItemList index={index} tracks={tracks}/> 
                 <div className="verticalline"></div>
-                <ItemList index={index} tracks={tracks} artists={artists}/> 
+                <ItemList index={index} tracks={artists}/> 
             </div>
         </div>);
     }
