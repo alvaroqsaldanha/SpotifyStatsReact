@@ -13,7 +13,6 @@ class Signedin extends Component {
             aotd: false,
             ids: {}
         } 
-
     } 
 
     changeTimeframe = (event) => {

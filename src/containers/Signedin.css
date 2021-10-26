@@ -69,7 +69,7 @@ header > button {
     top: 23%;
 }
 
-.test1 {
+.list {
     display:grid;
     grid-template-columns: 1fr;
     grid-gap: 10px;

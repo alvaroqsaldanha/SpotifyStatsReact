@@ -14,13 +14,13 @@ const ItemList = ({index,tracks}) => {
             else
                 return <Item key={i} pos={idx + i + 1} name={tracks_slice[i].name} artist={""} link={tracks_slice[i].images[1].url} />  
         } catch (error) {
-            return <h2>Can't Show this Item :(</h2>
+            return <h3 style={{color:'white', textAlign:'center'}}>Can't Show this Item :(</h3>
         }
 
     })
     console.log(ItemEntries);
     return (
-        <div className="test1">
+        <div className="list">
             {ItemEntries}
         </div>
     );

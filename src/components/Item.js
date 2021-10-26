@@ -6,7 +6,7 @@ const Item = ({pos,name,artist,link}) => {
         <div className="itemcontainer">
             <div className="gridcontainer">
                 <img className="itemcover" src={link}></img>
-                <h1 className="test">{pos}</h1>
+                <h1 className="position">{pos}</h1>
                 <p className="name">{name} <br/> {artist}</p>
             </div>
         </div>
