@@ -6,7 +6,7 @@ class Signedout extends Component {
     constructor(props) { 
         super(props);
         this.state = {
-            apistate: ''
+            error: false,
         }
 
     } 
@@ -25,7 +25,6 @@ class Signedout extends Component {
 
     signIn = () => {
         const temp_state = 'csh' + (Math.random() * (998999999) + 1000000).toString().substring(3,9) + 'ff' + Math.random().toString(36).substring(2, 16); 
-        this.setState({apistate: temp_state });
         chrome.identity.launchWebAuthFlow({
             url: this.authorize(temp_state),
             interactive: true 
@@ -33,10 +32,12 @@ class Signedout extends Component {
             console.log(redirect_url);
             if (chrome.runtime.lastError) {
                 console.log("There was a runtime error: ", chrome.runtime.lastError);
+                this.setState({error: true});
             } 
             else {
                 if (redirect_url.includes('callback?error=access_denied')){
                     console.log("Access denied");
+                    this.setState({error: true});
                 }
                 else{
                     let stateToken = redirect_url.substring(redirect_url.indexOf('state') + 6);
@@ -55,7 +56,7 @@ class Signedout extends Component {
                         this.props.signinfunction(ACCESS_TOKEN);
                     }
                     else{
-                        //THROW ERROR!!!!!!
+                        this.setState({error: true});
                     }  
                 } 
             }
@@ -64,7 +65,11 @@ class Signedout extends Component {
     }
 
     render() { 
-    this.signIn = this.signIn.bind(this);
+      const {error} = this.state;
+      this.signIn = this.signIn.bind(this);
+      if (error) {
+         // Return an error component VS Error Boundry
+      }
       return (<div>
         <h2 className="welcomeText">WELCOME</h2>
         <div className="signin"><button className="signinbutton button1" onClick={this.signIn}>SIGN IN</button></div>
