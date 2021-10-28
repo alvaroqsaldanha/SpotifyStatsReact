@@ -46,7 +46,6 @@ class Signedout extends Component {
                     if (stateToken === temp_state){
 
                         setTimeout(() => {
-
                         }, 3600000);
                         
                         let ACCESS_TOKEN = redirect_url.substring(redirect_url.indexOf('access_token=') + 13);
@@ -68,7 +67,7 @@ class Signedout extends Component {
       const {error} = this.state;
       this.signIn = this.signIn.bind(this);
       if (error) {
-         // Return an error component VS Error Boundry
+         // Return an error component VS Error Boundary
       }
       return (<div>
         <h2 className="welcomeText">WELCOME</h2>
