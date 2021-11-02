@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import ItemList from './../components/ItemList';
-import left from './leftarrow.png';
-import right from './rightarrow.png';
+import left from './../images/leftarrow.png';
+import right from './../images/rightarrow.png';
 
 class TopItems extends Component {
 

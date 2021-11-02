@@ -21,8 +21,7 @@ class App extends Component {
     signOut = (token)  => {
       this.setState({ userloggedin: false, access_token: '' });
     } 
-
-
+    
     render() { 
       const {userloggedin,access_token} = this.state;
       return userloggedin ? <Signedin signoutfunction={this.signOut} token={access_token} /> : <Signedout signinfunction={this.onSucessfullSignIn} />; 
