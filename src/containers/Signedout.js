@@ -45,7 +45,8 @@ class Signedout extends Component {
                     console.log("State Token: ", stateToken);
                     if (stateToken === temp_state){
 
-                        setTimeout(() => {
+                        setTimeout(() => { 
+                            //REFRESH TOKEN, currently token is refreshed everytime the window is closed.
                         }, 3600000);
                         
                         let ACCESS_TOKEN = redirect_url.substring(redirect_url.indexOf('access_token=') + 13);

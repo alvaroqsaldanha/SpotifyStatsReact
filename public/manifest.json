@@ -3,7 +3,7 @@
   "description": "Find out how you've been listening to music on spotify!",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["storage","identity"],
+  "permissions": ["identity"],
   "host_permissions": [
     "https://api.spotify.com/*"
   ],
