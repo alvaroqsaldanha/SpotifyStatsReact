@@ -16,7 +16,6 @@ class Aotd extends Component {
             index: 0,
             songs: {}
         }
-        console.log("ids: ",this.props.ids);
         this.getSongs();
     } 
 
