@@ -70,7 +70,6 @@ class TopItems extends Component {
 
     render() { 
         const {index,tracks,artists,sent} = this.state;
-        console.log(artists);
         if (sent === 0) return null;
         return (<div className="topitemscontainer">
             <header>

@@ -1,0 +1,8 @@
+var error_map = {
+    DIFFERENT_STATE: "DIFFERENT_AUTH_STATE",
+    RUNTIME_ERROR: "RUNTIME_AUTH_ERROR",
+    ACCESS_DENIED: "ACCESS_AUTH_DENIED"
+};
+
+export {error_map};
+
