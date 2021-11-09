@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Signedin from './Signedin'; 
 import Signedout from './Signedout'; 
+import SignedOutErrorBoundary from './SignedOutErrorBoundary'
 
 class App extends Component {
 
@@ -24,7 +25,10 @@ class App extends Component {
     
     render() { 
       const {userloggedin,access_token} = this.state;
-      return userloggedin ? <Signedin signoutfunction={this.signOut} token={access_token} /> : <Signedout signinfunction={this.onSucessfullSignIn} />; 
+      return userloggedin ? <Signedin signoutfunction={this.signOut} token={access_token} /> : 
+      <SignedOutErrorBoundary>
+        <Signedout signinfunction={this.onSucessfullSignIn} />; 
+      </SignedOutErrorBoundary>
     }
 }  
 

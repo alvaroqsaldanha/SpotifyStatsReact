@@ -37,7 +37,7 @@ class Signedin extends Component {
                     <option value="long_term">Years</option>
                 </select> 
                 <button className="aotdbutton button1" onClick={() => this.changeAotd(true)}>Get Random Song!</button>
-                <button className="signoutbutton button1" onClick={this.props.signoutfunction}>SIGN OUT</button>
+                <button className="signoutbutton button1" onClick={this.props.signoutfunction}>Sign Out</button>
             </footer>
           </div>);
     }

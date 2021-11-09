@@ -6,10 +6,6 @@ class Signedout extends Component {
 
     constructor(props) { 
         super(props);
-        this.state = {
-            error: false,
-            message: ""
-        }
     } 
 
     authorize = (temp_state) => {
@@ -31,18 +27,15 @@ class Signedout extends Component {
             interactive: true 
         }, function(redirect_url) {
             if (chrome.runtime.lastError) {
-                console.log("There was a runtime error: ", chrome.runtime.lastError);
-                this.setState({
-                    error: true,
-                    message: error_map['RUNTIME_ERROR']
+                //This method is used for throwing errors because the error boundary does not catch exceptions if asynchronous functions
+                this.setState( () => {
+                    throw Error(error_map['RUNTIME_ERROR']);
                 });
             } 
             else {
                 if (redirect_url.includes('callback?error=access_denied')){
-                    console.log("Access denied");
-                    this.setState({
-                        error: true,
-                        message: error_map['ACCESS_DENIED']
+                    this.setState( () => {
+                        throw Error(error_map['ACCESS_DENIED']);
                     });
                 }
                 else{
@@ -58,9 +51,8 @@ class Signedout extends Component {
                         this.props.signinfunction(ACCESS_TOKEN);
                     }
                     else{
-                        this.setState({
-                            error: true,
-                            message: error_map['DIFFERENT_STATE']
+                        this.setState( () => {
+                            throw Error(error_map['DIFFERENT_STATE']);
                         });
                     }  
                 } 
@@ -70,11 +62,7 @@ class Signedout extends Component {
     }
 
     render() { 
-      const {error , message} = this.state;
       this.signIn = this.signIn.bind(this);
-      if (error) {
-        // Return error component 
-      }
       return (<div>
         <h2 className="welcomeText">WELCOME</h2>
         <div className="signin"><button className="signinbutton button1" onClick={this.signIn}>SIGN IN</button></div>
