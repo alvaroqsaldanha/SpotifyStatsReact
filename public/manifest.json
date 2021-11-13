@@ -1,9 +1,9 @@
 {
   "name": "Spotify Stats - React! [BETA]",
   "description": "Find out how you've been listening to music on spotify!",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifest_version": 3,
-  "permissions": ["identity"],
+  "permissions": ["identity","storage"],
   "action": {
     "default_popup": "index.html",
     "default_icon": {
