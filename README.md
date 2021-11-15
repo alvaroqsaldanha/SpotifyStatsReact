@@ -5,7 +5,7 @@ A google chrome extension being developed with ReactJS, CSS and using Spotify's 
 Beta version available here: https://chrome.google.com/webstore/detail/spotify-stats-react-beta/mkcilobclflkbcpmgmjbnkipkkhhiigj
 This version is behind the one present in the repository, but will get updated as progress is made. Thank you!
 
-This README will be updated with cloning installing instructions soon. 
+This README will be updated with cloning installing instructions soon. Because this extension uses the Spotify Web API, it is required that, if it's installed from an external source to the Google Web Store, the local id of the extension given by Google Chrome is registered on the App's Spotify Dashboard. Since that dashboard is private, installation from cloning is a longer process. Still, the instructions will be updated soon. 
 
 Here are some screenshots of the current version :) :
 
