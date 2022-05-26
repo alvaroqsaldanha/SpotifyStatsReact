@@ -2,7 +2,7 @@
 
 A google chrome extension being developed with ReactJS, CSS and using Spotify's RESTful Web API. It allows the user to check their Spotify account's listening statistics and get recommendations.  
 
-Beta version available here: https://chrome.google.com/webstore/detail/spotify-stats-react-beta/mkcilobclflkbcpmgmjbnkipkkhhiigj
+Beta version available [here](https://chrome.google.com/webstore/detail/spotify-stats-react-beta/mkcilobclflkbcpmgmjbnkipkkhhiigj).
 This version is behind the one present in the repository, but will get updated as progress is made. Thank you!
 
 This README will be updated with cloning installing instructions soon. Because this extension uses the Spotify Web API, it is required that, if it's installed from an external source to the Google Web Store (like github), the local id of the extension given by Google Chrome is registered on the App's Spotify Dashboard. Since that dashboard is private, installation from cloning is a longer process. Still, the instructions will be updated soon. 
